@@ -93,6 +93,11 @@ public class MDI_Sistema extends javax.swing.JFrame {
 
         jMenuItem1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jMenuItem1.setText("Aplicaciones - Usuario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem1);
 
         jMenuItem5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -152,6 +157,12 @@ public class MDI_Sistema extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+Asignacion_A_Usuarios ventana = new Asignacion_A_Usuarios();
+                    ventana.setVisible(true);
+                    
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
