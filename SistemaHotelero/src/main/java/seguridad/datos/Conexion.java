@@ -5,7 +5,8 @@ import java.sql.*;
 public class Conexion {
     // Estas constantes deben cambiarse temporalmente para probarlo localmente
 
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/umg?useSSL=false&serverTimezone=UTC";
+
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3307/umg?useSSL=false&serverTimezone=UTC";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASS = "";
   

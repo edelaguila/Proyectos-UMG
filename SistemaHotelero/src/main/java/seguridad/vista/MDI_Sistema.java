@@ -106,6 +106,11 @@ public class MDI_Sistema extends javax.swing.JFrame {
 
         JMenuItem_ApU.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JMenuItem_ApU.setText("Aplicaciones - Usuario");
+        JMenuItem_ApU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMenuItem_ApUActionPerformed(evt);
+            }
+        });
         JMenu_Asignaciones.add(JMenuItem_ApU);
 
         JMenuItem_ApP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -153,7 +158,6 @@ public class MDI_Sistema extends javax.swing.JFrame {
                 jMenuItem10ActionPerformed(evt);
             }
         });
-
         JMenu_Mantenimientos.add(jMenuItem10);
 
         JMenu_Seguridad.add(JMenu_Mantenimientos);
@@ -178,6 +182,7 @@ public class MDI_Sistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
+
     private void JMenuItem_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuItem_CerrarSesionActionPerformed
         /*===== OPERACIÓN CERRAR SESIÓN ====
           Variable entera respuesta_cs*/
@@ -200,6 +205,13 @@ public class MDI_Sistema extends javax.swing.JFrame {
         formMantenimiento_Aplicacion = new Mantenimiento_Aplicacion();
         JDesktopPane_Escritorio.add(formMantenimiento_Aplicacion);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void JMenuItem_ApUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuItem_ApUActionPerformed
+        Asignacion_A_Usuarios ventana = new Asignacion_A_Usuarios();
+        ventana.setVisible(true);
+        JDesktopPane_Escritorio.add(ventana);
+    }//GEN-LAST:event_JMenuItem_ApUActionPerformed
+
 
     /**
      * @param args the command line arguments
