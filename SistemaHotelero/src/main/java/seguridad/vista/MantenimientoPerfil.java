@@ -4,6 +4,8 @@ package seguridad.vista;
 import seguridad.datos.PerfilDAO;
 import seguridad.dominio.Perfil;
 import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Nay Ale
@@ -46,6 +48,7 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Mantenimiento Perfil");
         setRequestFocusEnabled(false);
         setVisible(true);
 
@@ -274,6 +277,23 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
         } else {
         }
         perfilDAO.query(perfilesConsultar);
+         try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/umg?useSSL=false&serverTimezone=UTC", "root", "12345");
+
+    PreparedStatement ps=cn.prepareStatement("select * from tbl_perfil_encabezado1");
+    ResultSet rs=ps.executeQuery();
+    DefaultTableModel tm=(DefaultTableModel)jTable1.getModel();
+    tm.setRowCount(0);
+    while(rs.next())
+    {
+   Object o[]={rs.getInt("Pk_id_perfil"),rs.getString("nombre_perfil"),rs.getString("descripcion_perfil"),rs.getString("estado_perfil")};
+      tm.addRow(o);
+    }
+    }
+    catch(Exception e)
+    {
+    JOptionPane.showMessageDialog(this,e);
+    }
     }//GEN-LAST:event_Botton_BuscarActionPerformed
 
 

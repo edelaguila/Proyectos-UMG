@@ -1,8 +1,5 @@
 
 package seguridad.dominio;
-
-
-
 /**
  *
  * @author Nay Ale

@@ -16,7 +16,7 @@ public class MDI_Sistema extends javax.swing.JFrame {
      * Creates new form MDI_Seguridad
      */
     Perfil mod;
-    private MantenimientoPerfil ventana15;
+    private MantenimientoPerfil ventana1;
     public MDI_Sistema() {
         initComponents();
     }
