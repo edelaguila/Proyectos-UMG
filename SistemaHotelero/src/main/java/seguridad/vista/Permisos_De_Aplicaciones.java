@@ -42,6 +42,9 @@ public class Permisos_De_Aplicaciones extends javax.swing.JInternalFrame {
         jCheckBox_Imprimir = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
 
+        setTitle("Permisos de Aplicaciones");
+        setVisible(true);
+
         jLabel1.setText("Usuario");
 
         jLabel2.setText("Aplicaciones");
