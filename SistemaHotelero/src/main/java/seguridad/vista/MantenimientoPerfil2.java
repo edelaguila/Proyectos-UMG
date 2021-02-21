@@ -1,6 +1,6 @@
 
- 
 package seguridad.vista;
+
 import seguridad.datos.PerfilDAO;
 import seguridad.dominio.Perfil;
 import java.sql.*;
@@ -13,16 +13,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Nay Ale
  */
-public class MantenimientoPerfil extends javax.swing.JInternalFrame {
+public class MantenimientoPerfil2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form MantenimientoPerfil
+     * Creates new form MantenimientoPerfil2
      */
-
-    public MantenimientoPerfil() {
+    public MantenimientoPerfil2() {
         initComponents();
-    }  
-     public void limpiar() {
+    }
+ public void limpiar() {
         txt_IdPerfil.setText("");
         txt_NombreP.setText("");
         txt_DescPerfil.setText("");
@@ -30,7 +29,6 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
         RBEP0.setSelected(false);
        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +38,8 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnEstadoPerf = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_IdPerfil = new javax.swing.JTextField();
@@ -58,15 +57,18 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setTitle("Mantenimiento Perfil");
-        setRequestFocusEnabled(false);
-        setVisible(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id Perfil", "Nombre Perfil", "Descripcion", "Estado Perfil"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
 
@@ -226,16 +228,6 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
                 .addComponent(btnListar))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id Perfil", "Nombre Perfil", "Descripcion", "Estado Perfil"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,7 +238,7 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,54 +258,54 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Perfil perfilesInsertar = new Perfil();
         PerfilDAO perfilDAO = new PerfilDAO();
-        
+
         //perfilesInsertar.setIdperfil(1);
-        String r1="";
+        
         // Prueba insert
         perfilesInsertar.setIdperfil((int) Integer.parseInt(txt_IdPerfil.getText()));
         perfilesInsertar.setNombrePerfil(txt_NombreP.getText());
-        perfilesInsertar.setDescripcionPerfil(txt_DescPerfil.getText());  
+        perfilesInsertar.setDescripcionPerfil(txt_DescPerfil.getText());
         //perfilesInsertar.setEstadoPerfil(r1);
         //btnEstadoPerf
-         if (RBEP1.isSelected()) {
-                    perfilesInsertar.setEstadoPerfil(1);
-                }
-                if (RBEP0.isSelected()) {
-                    perfilesInsertar.setEstadoPerfil(0);
-                }
-                {
-                    JOptionPane.showMessageDialog(null, "Perfil registrado Exitosamente");
-                    limpiar();
-                perfilDAO.insert(perfilesInsertar);
-                }
-                //else {
-                //JOptionPane.showMessageDialog(null, "Los campos estan vacios");
-                //} 
-    
+        if (RBEP1.isSelected()) {
+            perfilesInsertar.setEstadoPerfil(1);
+        }
+        if (RBEP0.isSelected()) {
+            perfilesInsertar.setEstadoPerfil(0);
+        }
+        {
+            JOptionPane.showMessageDialog(null, "Perfil registrado Exitosamente");
+            limpiar();
+            perfilDAO.insert(perfilesInsertar);
+        }
+        //else {
+            //JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+            //}
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-         PerfilDAO perfilDAO = new PerfilDAO();
+        PerfilDAO perfilDAO = new PerfilDAO();
         Perfil perfilesActualizar = new Perfil();
         perfilesActualizar.setIdperfil(1);
-        
+
         // Prueba update
         perfilesActualizar.setIdperfil((int) Integer.parseInt(txt_IdPerfil.getText()));
         perfilesActualizar.setNombrePerfil(txt_NombreP.getText());
-        perfilesActualizar.setDescripcionPerfil(txt_DescPerfil.getText());  
-       
+        perfilesActualizar.setDescripcionPerfil(txt_DescPerfil.getText());
+
         if (RBEP1.isSelected()) {
-                    perfilesActualizar.setEstadoPerfil(1);
-                }
-                if (RBEP0.isSelected()) {
-                    perfilesActualizar.setEstadoPerfil(0);
-                }
-                {
-                    JOptionPane.showMessageDialog(null, "Perfil registrado Exitosamente");
-                    limpiar();
-                perfilDAO.update(perfilesActualizar);
-                }
-        
+            perfilesActualizar.setEstadoPerfil(1);
+        }
+        if (RBEP0.isSelected()) {
+            perfilesActualizar.setEstadoPerfil(0);
+        }
+        {
+            JOptionPane.showMessageDialog(null, "Perfil registrado Exitosamente");
+            limpiar();
+            perfilDAO.update(perfilesActualizar);
+        }
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -330,24 +322,23 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
         Perfil perfilBuscar = new Perfil();
         PerfilDAO perfilDAO = new PerfilDAO();
         perfilBuscar.setIdperfil(Integer.parseInt(txt_IdPerfil.getText()));
-        
-         perfilDAO.query(perfilBuscar);
+
+        perfilDAO.query(perfilBuscar);
         // Prueba query
         txt_IdPerfil.setText(String.valueOf(perfilBuscar.getPk_id_perfil()));
         txt_NombreP.setText(String.valueOf(perfilBuscar.getNombre_perfil()));
         txt_DescPerfil.setText(String.valueOf(perfilBuscar.getDescripcion_perfil()));
         //txt_NombreP.setText(String.valueOf(perfilBuscar.getNombre_perfil()));
-       
+
         if (perfilBuscar.getEstado_perfil() == 1) {
             RBEP1.setSelected(true);
         }
         if (perfilBuscar.getEstado_perfil() == 0) {
             RBEP0.setSelected(true);
         }
-         
-        
+
         //perfilDAO.query(perfilBuscar);
-        
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
@@ -378,13 +369,46 @@ public class MantenimientoPerfil extends javax.swing.JInternalFrame {
         jTable1.setRowMargin(10);
     }//GEN-LAST:event_btnListarActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MantenimientoPerfil2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MantenimientoPerfil2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MantenimientoPerfil2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MantenimientoPerfil2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MantenimientoPerfil2().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JRadioButton RBEP0;
     public javax.swing.JRadioButton RBEP1;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
-    private javax.swing.ButtonGroup btnEstadoPerf;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnListar;
     public javax.swing.JButton btnModificar;

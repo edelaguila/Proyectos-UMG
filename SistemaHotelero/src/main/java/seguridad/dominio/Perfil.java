@@ -1,5 +1,6 @@
 
 package seguridad.dominio;
+import java.sql.Date;
 /**
  *
  * @author Nay Ale
@@ -8,8 +9,19 @@ public class Perfil {
   private int Pk_id_perfil;
     private String nombre_perfil;
     private String descripcion_perfil;
-    private String estado_perfil;  
+    private int estado_perfil;  
 
+public Perfil (int Pk_id_perfil, String nombre_perfil,  String descripcion_perfil,int estado_perfil ){
+
+    this.Pk_id_perfil= Pk_id_perfil;
+    this.nombre_perfil=nombre_perfil;
+    this.descripcion_perfil=descripcion_perfil;
+    this.estado_perfil=estado_perfil;
+}
+
+   public Perfil() {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public int getPk_id_perfil() {
         return Pk_id_perfil;
     }
@@ -34,36 +46,31 @@ public class Perfil {
         this.descripcion_perfil = descripcion_perfil;
     }
 
-    public String getEstado_perfil() {
+    public int getEstado_perfil() {
         return estado_perfil;
     }
 
-    public void setEstado_perfil(String estado_perfil) {
+    public void setEstado_perfil(int estado_perfil) {
         this.estado_perfil = estado_perfil;
     }
-    
-    @Override
-     
-   public String toString() {    
-    return "Perfil{" + "Pk_id_perfil=" + Pk_id_perfil + ", nombre_perfil=" + nombre_perfil + ", descripcion_perfil=" + descripcion_perfil + ", estado_perfil=" + estado_perfil + '}';
-    } 
-    public String DescripcionPerfil() {
+//------------------------------------------------------------------------------------------------------------
+    public void setIdperfil(int aInt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setIdperfil(int Pk_id_perfil) {
+    public void setNombrePerfil(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setNombrePerfil(String nombre_perfil) {
+    public void setDescripcionPerfil(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setDescripcionPerfil(String descripcion_perfil) {
+    public void setEstadoPerfil(int aInt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setEstadoPerfil(String estado_perfil) {
+    public int getIdperfil() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -75,14 +82,18 @@ public class Perfil {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getEstadoPerfil() {
+    public int getEstadoPerfil() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public int getIdperfil() {
+    public void setEstadoPerfil(String estado_perfil) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-  
+    public void getEstado_perfil(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+
 }
         
