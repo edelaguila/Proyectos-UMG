@@ -5,7 +5,7 @@
  */
 package seguridad.dominio;
 import java.awt.event.ActionEvent;
-import seguridad.vista.Mantenimiento_Modulos;
+import seguridad.vista.Mantenimiento_Modulo;
 import java.awt.event.ActionListener;
 /**
  *
@@ -16,7 +16,7 @@ public class Modulos{
     private String nombre_modulo;
     private String descripcion_modulo;
     private String estado_modulo;
-    private Mantenimiento_Modulos frm;
+    private Mantenimiento_Modulo frm;
 
     public int getCodigo_modulo() {
         return codigo_modulo;

@@ -18,7 +18,7 @@ import seguridad.dominio.Usuario;
 public class MDI_Sistema extends javax.swing.JFrame {
     private Aplicacion_Perfil NuevaVentana;
 
-    private Mantenimiento_Modulos formMantenimiento_Modulo;
+    private Mantenimiento_Modulo formMantenimiento_Modulo;
     private Mantenimiento_Aplicacion formMantenimiento_Aplicacion;
     private Asignacion_modulos formModulos;
     
@@ -250,14 +250,14 @@ public class MDI_Sistema extends javax.swing.JFrame {
 
 
     private void JMenuItem_ModulosActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-      formMantenimiento_Modulo = new Mantenimiento_Modulos();
+      formMantenimiento_Modulo = new Mantenimiento_Modulo();
       formMantenimiento_Modulo.setVisible(true);
       JDesktopPane_Escritorio.add(formMantenimiento_Modulo);
     }                                                 
 
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        formMantenimiento_Modulo = new Mantenimiento_Modulos();
+        formMantenimiento_Modulo = new Mantenimiento_Modulo();
       JDesktopPane_Escritorio.add(formMantenimiento_Modulo);
       
 
