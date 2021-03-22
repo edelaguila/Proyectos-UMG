@@ -91,6 +91,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bit&#xe1;cora"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMenuItem_BitacoraActionPerformed"/>
+              </Events>
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="JMenu_Mantenimientos">
               <Properties>

@@ -1,6 +1,8 @@
 seguridad\vista\Asignacion_usuario_Perfil1$2.class
+seguridad\dominio\Bitacora.class
 seguridad\dominio\Aplicacion.class
 seguridad\vista\Mantenimiento_Aplicacion$2.class
+seguridad\datos\BitacoraDao.class
 seguridad\vista\Asignacion_modulos$9.class
 seguridad\vista\Mantenimiento_Modulos.class
 seguridad\vista\Mantenimiento_Usuario$1.class
@@ -9,6 +11,7 @@ seguridad\vista\MDI_Sistema$1.class
 seguridad\vista\Asignacion_usuario_Perfil1$5.class
 seguridad\vista\Mantenimiento_Aplicacion$5.class
 seguridad\vista\Aplicacion_Perfil$3.class
+seguridad\vista\FmrBitacora$2.class
 seguridad\vista\Aplicacion_Perfil$8.class
 seguridad\vista\MDI_Sistema$4.class
 seguridad\vista\Asignacion_modulos$6.class
@@ -18,6 +21,7 @@ seguridad\vista\MDI_Sistema.class
 seguridad\vista\Mantenimiento_Modulos$3.class
 seguridad\vista\MDI_Sistema$7.class
 seguridad\dominio\Asignacion_Aplicacion_Perfil.class
+seguridad\vista\FmrBitacora$4.class
 seguridad\vista\Mantenimiento_Usuario$3.class
 seguridad\datos\Hash.class
 seguridad\vista\MDI_Sistema$3.class
@@ -35,6 +39,7 @@ seguridad\vista\Mantenimiento_Modulos$4.class
 seguridad\vista\Asignacion_usuario_Perfil1$1.class
 seguridad\vista\Asignacion_usuario_Perfil1.class
 seguridad\datos\UsuarioDAO.class
+seguridad\vista\FmrBitacora$3.class
 seguridad\vista\Mantenimiento_Usuario$4.class
 seguridad\vista\MDI_Sistema$9.class
 seguridad\vista\Aplicacion_Perfil$6.class
@@ -42,6 +47,7 @@ seguridad\vista\Asignacion_usuario_Perfil1$8.class
 seguridad\vista\Asignacion_modulos$4.class
 seguridad\dominio\Usuario.class
 seguridad\vista\MDI_Sistema$2.class
+seguridad\vista\FmrBitacora.class
 seguridad\datos\Conexion.class
 seguridad\vista\Mantenimiento_Aplicacion$4.class
 seguridad\vista\Mantenimiento_Aplicacion$9.class
@@ -66,6 +72,7 @@ seguridad\vista\Aplicacion_Perfil$1.class
 seguridad\datos\AsignacionDAO.class
 seguridad\vista\Mantenimiento_Aplicacion$6.class
 seguridad\datos\ModulosDAO.class
+seguridad\vista\FmrBitacora$1.class
 seguridad\vista\Asignacion_modulos$2.class
 seguridad\vista\Aplicacion_Perfil$4.class
 seguridad\vista\Mantenimiento_Usuario$2.class
@@ -74,6 +81,7 @@ seguridad\vista\Aplicacion_Perfil$2.class
 seguridad\dominio\Perfil.class
 seguridad\vista\Aplicacion_Perfil$9.class
 seguridad\vista\Asignacion_usuario_Perfil1$4.class
+seguridad\vista\MDI_Sistema$10.class
 seguridad\datos\Asignacion_Usuario_PerfilDAO.class
 seguridad\vista\Asignacion_usuario_Perfil1$10.class
 seguridad\vista\Mantenimiento_Usuario$6.class
