@@ -435,18 +435,7 @@ public class Asignacion_modulos extends javax.swing.JInternalFrame {
         }else{
             JOptionPane.showMessageDialog(this,"DEBE SELECCIONAR UN ID","SISTEMA",JOptionPane.WARNING_MESSAGE);
         }
-             BitacoraDao BitacoraDAO = new BitacoraDao();
-            
-        Bitacora AInsertar = new Bitacora();
-        
-        AInsertar.setId_Usuario("Usuario");
-        AInsertar.setAccion("insertar");
-        AInsertar.setCodigoAplicacion("03");
-            try {
-                BitacoraDAO.insert(AInsertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
+         
     }//GEN-LAST:event_BT_AgregarActionPerformed
 
     private void REGISTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REGISTARActionPerformed

@@ -19,7 +19,7 @@ import seguridad.dominio.Bitacora;
  */
 public class FmrBitacora extends javax.swing.JInternalFrame {
 
-    
+    String CodigoAplicacion="03";
 
 
     
@@ -66,6 +66,7 @@ public class FmrBitacora extends javax.swing.JInternalFrame {
             modelo.addRow(dato);
         }}
     public FmrBitacora() {
+        
         initComponents();
         llenadoDeTablas();
      
