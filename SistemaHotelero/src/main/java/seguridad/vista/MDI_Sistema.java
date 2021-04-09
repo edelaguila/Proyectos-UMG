@@ -18,7 +18,7 @@ import seguridad.dominio.Usuario;
 public class MDI_Sistema extends javax.swing.JFrame {
     
     private Aplicacion_Perfil NuevaVentana;
-
+ private FmrBitacora FmrBitacora;
     private Mantenimiento_Modulos formMantenimiento_Modulo;
     private Mantenimiento_Aplicacion formMantenimiento_Aplicacion;
     private Asignacion_modulos formModulos;
@@ -180,6 +180,11 @@ public class MDI_Sistema extends javax.swing.JFrame {
 
         JMenuItem_Bitacora.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JMenuItem_Bitacora.setText("Bitácora");
+        JMenuItem_Bitacora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMenuItem_BitacoraActionPerformed(evt);
+            }
+        });
         JMenu_Seguridad.add(JMenuItem_Bitacora);
 
         JMenu_Mantenimientos.setText("Mantenimientos");
@@ -315,6 +320,15 @@ public class MDI_Sistema extends javax.swing.JFrame {
 formAsignacion_de_aplicacion_a_usuario = new Asignacion_de_aplicacion_a_usuario();
         JDesktopPane_Escritorio.add(formAsignacion_de_aplicacion_a_usuario);
     }//GEN-LAST:event_JMenuItem_ApUActionPerformed
+
+    private void JMenuItem_BitacoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuItem_BitacoraActionPerformed
+
+   FmrBitacora= new FmrBitacora();
+        FmrBitacora.setVisible(true);
+        JDesktopPane_Escritorio.add(FmrBitacora);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JMenuItem_BitacoraActionPerformed
 
     /**
      * @param args the command line arguments

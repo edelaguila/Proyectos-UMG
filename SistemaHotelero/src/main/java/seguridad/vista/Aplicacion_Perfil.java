@@ -5,7 +5,10 @@
  */
 package seguridad.vista;
 import java.io.File;
+import java.net.UnknownHostException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
@@ -16,6 +19,8 @@ import seguridad.dominio.Asignacion_Aplicacion_Perfil;
 import seguridad.datos.AplicacionDAO;
 import seguridad.datos.PerfilDAO;
 import seguridad.datos.Asignacion_Aplicacion_PerfilDAO;
+import seguridad.datos.BitacoraDao;
+import seguridad.dominio.Bitacora;
 
 /**
  *
@@ -433,6 +438,8 @@ int filaSeleccionada=tabla2.getSelectedRow();  //LE ASIGNAMOS UNA VARIABLE INTEG
         }
             
             JOptionPane.showMessageDialog(null, "Modulo registrado correctamente");
+               modulosDAO.insert(moduloInsertar);  
+       
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

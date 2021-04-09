@@ -38,9 +38,9 @@ public class FmrBitacora extends javax.swing.JInternalFrame {
         modelo.addColumn("ID Usuario");
         modelo.addColumn("Fecha");
           modelo.addColumn("Hora");
-         
+          modelo.addColumn("Ip");
+          modelo.addColumn("host");
       
-        modelo.addColumn("Ip");
           modelo.addColumn("Accion");
         modelo.addColumn("codigo Aplicacion");
     /**
@@ -51,17 +51,16 @@ public class FmrBitacora extends javax.swing.JInternalFrame {
      BitacoraDao BicDAO = new BitacoraDao();
         List<Bitacora> usuario = BicDAO.select();
         JtProductos1.setModel(modelo);
-        String[] dato = new String[7];
+        String[] dato = new String[8];
         for (int i = 0; i < usuario.size(); i++) {
             dato[0] = usuario.get(i).getId_Bitacora();
             dato[1] = usuario.get(i).getId_Usuario();
-            
               dato[2] = usuario.get(i).getFecha();
             dato[3] = usuario.get(i).getHora();
-        
-            dato[4] = usuario.get(i).getIp();
-              dato[5] = usuario.get(i).getAccion();
-            dato[6] = usuario.get(i).getcodigoAplicacion();
+           dato[4] = usuario.get(i).getHost();
+            dato[5] = usuario.get(i).getIp();
+              dato[6] = usuario.get(i).getAccion();
+            dato[7] = usuario.get(i).getcodigoAplicacion();
           
             //System.out.println("vendedor:" + vendedores);
             modelo.addRow(dato);
@@ -143,16 +142,6 @@ public class FmrBitacora extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(24, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(255, 255, 255)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BtCarga)
@@ -163,6 +152,14 @@ public class FmrBitacora extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(31, 31, 31))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(255, 255, 255)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,9 +172,9 @@ public class FmrBitacora extends javax.swing.JInternalFrame {
                     .addComponent(jButton2))
                 .addGap(15, 15, 15)
                 .addComponent(BtCarga)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pack();

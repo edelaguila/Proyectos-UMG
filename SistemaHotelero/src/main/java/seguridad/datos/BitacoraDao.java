@@ -65,7 +65,6 @@ public class BitacoraDao extends Conexion {
      */
 
     private static final String SQL_INSERT = "INSERT INTO tbl_bitacora(PK_id_bitacora, PK_id_usuario, fecha,hora,ip,accion,tabla,host1 ) VALUES(?, ?,?, ?,?, ?,?,?)";
-
     private static final String SQL_SELECT = "SELECT PK_id_bitacora, PK_id_usuario, fecha,hora,ip,accion, tabla ,host1 FROM tbl_bitacora";
     private static final String SQL_QUERY = "SELECT PK_id_bitacora, PK_id_usuario, fecha,hora,ip,accion, tabla,host1 FROM tbl_bitacora WHERE PK_id_usuario = ?";
 
@@ -177,8 +176,6 @@ public class BitacoraDao extends Conexion {
                  usuario.setHost( host);
 //     
         
-
-        
                 usuario.setIp(ip);
                 usuario.setAccion(accion);
                 usuario.setcodigoAplicacion(codigoAplicacion);
@@ -198,23 +195,28 @@ public class BitacoraDao extends Conexion {
 
     }
 
-    public int insert(Bitacora vendedor) throws UnknownHostException {
+    public int insert(Bitacora insertar) throws UnknownHostException {
            InetAddress addr = InetAddress.getLocalHost();
          String hostname = addr.getHostName();
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
         try {
+                insertar.setHora(horaActual());
+            insertar.setFecha(fechaActual());
+            insertar.setHost(hostname);
+            insertar.setIp(getIp());
+            
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, vendedor.getId_Bitacora());
-            stmt.setString(2, vendedor.getId_Usuario());
-            stmt.setString(3, vendedor.getFecha());
-            stmt.setString(4, vendedor.getHora());
-            stmt.setString(5, vendedor.getHost());
-            stmt.setString(6, vendedor.getIp());
-            stmt.setString(7, vendedor.getAccion());
-            stmt.setString(8, vendedor.getcodigoAplicacion());
+            stmt.setString(1,  insertar.getId_Bitacora());
+            stmt.setString(2,  insertar.getId_Usuario());
+            stmt.setString(3,  insertar.getFecha());
+            stmt.setString(4,   insertar.getHora());
+             stmt.setString(5,  insertar.getHost());
+                stmt.setString(6,  insertar.getAccion());
+            stmt.setString(7,  insertar.getcodigoAplicacion());
+             stmt.setString(8,  insertar.getIp());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -228,37 +230,7 @@ public class BitacoraDao extends Conexion {
 
         return rows;
     }
-    public void insertarBitacora (String Bitacora,String Usuario ,String Accion ,String codigoAplicacion) throws UnknownHostException
-    {
-     
-        InetAddress addr = InetAddress.getLocalHost();
-         String hostname = addr.getHostName();
-        Bitacora AInsertar = new Bitacora();
    
-        AInsertar.setId_Bitacora(Bitacora);
-        AInsertar.setId_Usuario(Usuario);
-        // llamada  de  funcion
-        AInsertar.setFecha( fechaActual());
-        AInsertar.setHora(horaActual());
-         AInsertar.setcodigoAplicacion(codigoAplicacion);
-//     
-//        
-         AInsertar.setIp(getIp()  );
-       
-       AInsertar.setAccion(Accion);
-       AInsertar.setcodigoAplicacion( hostname);
-      
-        this.insert(AInsertar);
-        
-       
-         
-    }
-
-  
-   
-
-    
-           
 
 }
 

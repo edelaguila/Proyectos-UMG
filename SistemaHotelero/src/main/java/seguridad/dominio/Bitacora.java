@@ -22,6 +22,9 @@ public class Bitacora {
     private String Fecha;
     private String Hora;
      private String Host;
+        private String Ip;
+    private String Accion;
+    private String codigoAplicacion;
 
     public String getHost() {
         return Host;
@@ -40,10 +43,7 @@ public class Bitacora {
     }
    
 
-    private String Ip;
-    private String Accion;
-    private String codigoAplicacion;
-   
+ 
 /**
  *
  * generacion de  get y set de los variables
