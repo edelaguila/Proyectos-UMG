@@ -318,7 +318,7 @@ public class Mantenimiento_Modulos extends javax.swing.JInternalFrame {
                 actualizartabla();
         }else{
                 JOptionPane.showMessageDialog(null, "existe campos vacios y/o el codigo no debe de llevar números");
-                //Si el campo esta vacio o no inserta números muestra un mensaje de error
+                
         }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
