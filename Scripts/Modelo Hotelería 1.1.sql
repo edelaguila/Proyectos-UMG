@@ -23,6 +23,17 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
+-- Table `hoteleria`.`tbl_metodos_de_pago`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hoteleria`.`tbl_metodos_de_pago` (
+  `PK_id_metodo` INT NOT NULL,
+  `nombre_metodo` VARCHAR(50) NULL DEFAULT NULL,
+  `descripcion_metodo` VARCHAR(100) NULL DEFAULT NULL,
+  `estado_metodo` TINYINT NULL DEFAULT NULL,
+   PRIMARY KEY (`PK_id_metodo`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+-- -----------------------------------------------------
 -- Table `hoteleria`.`tbl_mantenimiento_habitaciones`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hoteleria`.`tbl_mantenimiento_habitaciones` (
