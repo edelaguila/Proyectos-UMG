@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package seguridad.vista;
+package Comercial.vista;
+import seguridad.vista.*;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,10 +21,6 @@ import seguridad.dominio.Bitacora;
 public class FmrBitacora extends javax.swing.JInternalFrame {
 
     int CodigoAplicacion=200;
-
-    public FmrBitacora() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 
     
