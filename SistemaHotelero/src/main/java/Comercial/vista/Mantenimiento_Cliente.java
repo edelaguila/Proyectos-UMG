@@ -130,6 +130,7 @@ producto.setText(Buscar.getProducto());
         monto = new javax.swing.JTextField();
         i = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
