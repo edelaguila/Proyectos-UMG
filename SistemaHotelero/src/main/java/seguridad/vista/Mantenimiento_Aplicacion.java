@@ -51,6 +51,7 @@ public class Mantenimiento_Aplicacion extends javax.swing.JInternalFrame {
         String datos[] = new String[5];
         AplicacionDAO aplicacionDAO = new AplicacionDAO();
         List<Aplicacion> aplicaciones = aplicacionDAO.select();
+        
         for (Aplicacion aplicacion : aplicaciones) {
             datos[0] = String.valueOf(aplicacion.getId_Aplicacion());
             datos[1] = aplicacion.getNombre_Aplicacion();

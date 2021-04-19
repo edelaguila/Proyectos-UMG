@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package Comercial.vista;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -16,6 +19,7 @@ public class MDIcomercial extends javax.swing.JFrame {
  private MantenimientoProductos formModulos;
   private Mantenimiento_Cliente Mantenimiento_Cliente ;
   private Mantenimiento_Acreedor  Mantenimiento_Acreedor;
+  private Registro_Articulo  Registro_Articulo;
     /**
      * Creates new form MDIcomercial
      */
@@ -32,7 +36,9 @@ public class MDIcomercial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane()
+
+        ;
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -44,6 +50,7 @@ public class MDIcomercial extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -121,6 +128,16 @@ public class MDIcomercial extends javax.swing.JFrame {
         jMenu2.add(jMenu9);
 
         jMenu10.setText("Mantenimientos Inventarios");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Mantenimineto Registro Articulo");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(jCheckBoxMenuItem1);
+
         jMenu2.add(jMenu10);
 
         jMenuBar1.add(jMenu2);
@@ -217,6 +234,13 @@ MantenimientoProductos ventana = new MantenimientoProductos();
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        Registro_Articulo= new Registro_Articulo();
+        Registro_Articulo.setVisible(true);
+          jDesktopPane1.add(Registro_Articulo);
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +280,7 @@ MantenimientoProductos ventana = new MantenimientoProductos();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;

@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import seguridad.datos.Conexion;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.

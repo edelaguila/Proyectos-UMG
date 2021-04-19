@@ -17,59 +17,57 @@ import javax.swing.table.DefaultTableModel;
  * @author PERSONAL
  */
 public class Mantenimiento_Cliente extends javax.swing.JInternalFrame {
-public void llenadoDeTablas() {
+
+    public void llenadoDeTablas() {
         /**
- *
- * creaccion de la tabla de de titulos  
- */
+         *
+         * creaccion de la tabla de de titulos
+         */
         DefaultTableModel modelo = new DefaultTableModel();
-       modelo.addColumn("ID Acreedores");
+        modelo.addColumn("ID Acreedores");
         modelo.addColumn("Cliente");
         modelo.addColumn("Monto");
-          modelo.addColumn("Nit");
-          modelo.addColumn("Estatus Cliente");
-          modelo.addColumn("Telefono");
-           modelo.addColumn("Producto");
-  
-     ClienteDao  ventasDAO = new  ClienteDao();
-  
+        modelo.addColumn("Nit");
+        modelo.addColumn("Estatus Cliente");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Producto");
 
+        ClienteDao ventasDAO = new ClienteDao();
 
-       List<Cliente> ventas = ventasDAO.select();
+        List<Cliente> ventas = ventasDAO.select();
         JtProductos1.setModel(modelo);
         String[] dato = new String[7];
-    for (int i = 0; i < ventas.size(); i++) {
+        for (int i = 0; i < ventas.size(); i++) {
             dato[0] = (ventas.get(i).getId_cliente());
             dato[1] = ventas.get(i).getCliente();
-              dato[2] = ventas.get(i).getNit();
+            dato[2] = ventas.get(i).getNit();
             dato[3] = (ventas.get(i).getEstatus_Cliente());
-          dato[4] = (ventas.get(i).getMonto());
+            dato[4] = (ventas.get(i).getMonto());
             dato[5] = (ventas.get(i).getTelefono());
             dato[6] = ventas.get(i).getProducto();
-          
-          
+
             System.out.println("vendedor:" + ventas);
             modelo.addRow(dato);
         }
-     }
- public void buscarVendedor() {
-     
-   
-     ClienteDao Clientes= new ClienteDao ();
-            
+    }
+
+    public void buscarVendedor() {
+
+        ClienteDao Clientes = new ClienteDao();
+
         Cliente Buscar = new Cliente();
 
-Buscar.setId_cliente(ID.getText());
-Buscar=Clientes.query(Buscar);         
-cliente.setText(Buscar.getCliente());
+        Buscar.setId_cliente(ID.getText());
+        Buscar = Clientes.query(Buscar);
+        cliente.setText(Buscar.getCliente());
+        nit.setText(Buscar.getNit());
+        telefono.setText(Buscar.getTelefono());
+        producto.setText(Buscar.getProducto());
+        estatus.setText(Buscar.getEstatus_Cliente());
+        monto.setText(Buscar.getMonto());
 
-nit.setText(Buscar.getNit());
-monto.setText(Buscar.getMonto());
-estatus.setText(Buscar.getEstatus_Cliente());
-telefono.setText(Buscar.getTelefono());
-producto.setText(Buscar.getProducto());
-  
     }
+
     public void limpiar() {
         ID.setText("");
         cliente.setText("");
@@ -77,14 +75,15 @@ producto.setText(Buscar.getProducto());
         monto.setText("");
         estatus.setText("");
         telefono.setText("");
-           producto.setText("");
+        producto.setText("");
     }
+
     /**
      * Creates new form Mantenimiento_Cliente
      */
     public Mantenimiento_Cliente() {
         initComponents();
-         llenadoDeTablas() ;
+        llenadoDeTablas();
     }
 
     /**
@@ -306,7 +305,7 @@ producto.setText(Buscar.getProducto());
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ClienteDao dao = new ClienteDao ();
+        ClienteDao dao = new ClienteDao();
 
         Cliente modificar = new Cliente();
         modificar.setId_cliente(ID.getText());
@@ -319,14 +318,14 @@ producto.setText(Buscar.getProducto());
 
         dao.update(modificar);
         llenadoDeTablas();
-         limpiar();
+        limpiar();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        ClienteDao acreedor = new ClienteDao ();
+        ClienteDao acreedor = new ClienteDao();
 
         Cliente vendedorAEliminar = new Cliente();
         vendedorAEliminar.setId_cliente(ID.getText());
@@ -338,9 +337,9 @@ producto.setText(Buscar.getProducto());
         vendedorAEliminar.setProducto(producto.getText());
         acreedor.delete(vendedorAEliminar);
         llenadoDeTablas();
- limpiar();
+        limpiar();
         JOptionPane.showMessageDialog(null, "Cliente Eliminado.");
-         
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -351,8 +350,8 @@ producto.setText(Buscar.getProducto());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String id="0";
-        ClienteDao ClienteDAO = new ClienteDao ();
+        String id = "0";
+        ClienteDao ClienteDAO = new ClienteDao();
 
         Cliente AInsertar = new Cliente();
         AInsertar.setId_cliente(ID.getText());
@@ -364,7 +363,7 @@ producto.setText(Buscar.getProducto());
         AInsertar.setProducto(producto.getText());
         ClienteDAO.insert(AInsertar);
         llenadoDeTablas();
-         limpiar();
+        limpiar();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -373,7 +372,7 @@ producto.setText(Buscar.getProducto());
     }//GEN-LAST:event_nitActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     try {
+        try {
             if ((new File("src\\main\\java\\Comercial\\reportes\\Clientes.chm")).exists()) {
                 Process p = Runtime
                         .getRuntime()

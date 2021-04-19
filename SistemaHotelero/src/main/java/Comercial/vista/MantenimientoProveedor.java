@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Comercial.vista;
+
 import Comercial.datos.ProveedorDAO1;
 import Comercial.datos.Conexion;
 import Comercial.dominio.Proveedor;
@@ -22,7 +23,7 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
     /**
      * Creates new form MantenimientoProveedor
      */
-     public void llenadoDeTablas() {
+    public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID Proveedor");
         modelo.addColumn("nombre");
@@ -33,7 +34,7 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
         modelo.addColumn("Email");
         modelo.addColumn("Estdo");
         ProveedorDAO1 proveedorDAO = new ProveedorDAO1();
-        
+
         List<Proveedor> proveedor = proveedorDAO.select();
         TablaProveedor.setModel(modelo);
         String[] dato = new String[8];
@@ -50,13 +51,13 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
             modelo.addRow(dato);
         }
     }
-    
-          public void buscar() {
-       Proveedor proveedorAConsultar = new Proveedor();
+
+    public void buscar() {
+        Proveedor proveedorAConsultar = new Proveedor();
         ProveedorDAO1 proveedorDAO = new ProveedorDAO1();
         proveedorAConsultar.setPK_id_proveedor(Integer.parseInt(Txtbuscar.getText()));
         proveedorAConsultar = proveedorDAO.query(proveedorAConsultar);
-        
+
         txt_Nombre.setText(proveedorAConsultar.getNombre_proveedor());
         txt_Direccion.setText(proveedorAConsultar.getDireccion_proveedor());
         txt_Contacto.setText(proveedorAConsultar.getContacto_proveedor());
@@ -64,12 +65,10 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
         txt_Nit.setText(proveedorAConsultar.getNit_proveedor());
         txt_Email.setText(proveedorAConsultar.getEmail_proveedor());
         txt_Estado.setText(proveedorAConsultar.getEstatus_proveedor());
-        
-                
-   
-                
-    }        
-        public void limpiar() {
+
+    }
+
+    public void limpiar() {
         txt_IdProveedor.setText("");
         txt_Nombre.setText("");
         txt_Direccion.setText("");
@@ -78,12 +77,9 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
         txt_Nit.setText("");
         txt_Email.setText("");
         txt_Estado.setText("");
-        
-        
+
     }
-    
-    
-    
+
     public MantenimientoProveedor() {
         initComponents();
         llenadoDeTablas();
@@ -366,7 +362,7 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        ProveedorDAO1 proveedorDAO = new  ProveedorDAO1();
+        ProveedorDAO1 proveedorDAO = new ProveedorDAO1();
         Proveedor proveedorAActualizar = new Proveedor();
         proveedorAActualizar.setPK_id_proveedor(Integer.parseInt(Txtbuscar.getText()));
         proveedorAActualizar.setNombre_proveedor(txt_Nombre.getText());
@@ -402,26 +398,25 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
         //        //String cbx_Modulo = cbxModulo.getSelectedItem().toString();
         //        //int txt_Estado = Integer.parseInt(txtAplicacion.getText());
         //        //lbl_Modulo = cbxModulo.getSelectedItem().toString();
-
         //
         //        if (txt_IdProveedor.getText().length() != 0 && txt_Nombre.getText().length() != 0
-            //                && txt_Direccion.getText().length() != 0 && txt_Contacto.getText().length() != 0 && txt_Telefono.getText().length() != 0
-            //               && txt_Nit.getText().length() != 0 && txt_Email.getText().length() != 0 && txt_Estado.getText().length() != 0 ) {
-            //            {
-                //                aplicacionInsertar.setPK_id_proveedor(Integer.parseInt(txt_IdProveedor.getText()));
-                //                //aplicacionInsertar.setId_Modulo(Integer.parseInt(cbxModulo.getSelectedItem().toString()));
-                //                aplicacionInsertar.setNombre_proveedor(txt_Nombre.getText());
-                //                aplicacionInsertar.setDireccion_proveedor(txt_Direccion.getText());
-                //                aplicacionInsertar.setContacto_proveedor(txt_Direccion.getText());
-                //                aplicacionInsertar.setTelefono_proveedor(txt_Direccion.getText());
-                //                aplicacionInsertar.setNit_proveedor(txt_Direccion.getText());
-                //                aplicacionInsertar.setEmail_proveedor(txt_Direccion.getText());
-                //                aplicacionInsertar.setEstatus_proveedor(txt_Direccion.getText());
-                //            }
-            //
-            //            }else {
-            //            JOptionPane.showMessageDialog(null, "Todos los campos tienen que estar llenos");
-            //        }
+        //                && txt_Direccion.getText().length() != 0 && txt_Contacto.getText().length() != 0 && txt_Telefono.getText().length() != 0
+        //               && txt_Nit.getText().length() != 0 && txt_Email.getText().length() != 0 && txt_Estado.getText().length() != 0 ) {
+        //            {
+        //                aplicacionInsertar.setPK_id_proveedor(Integer.parseInt(txt_IdProveedor.getText()));
+        //                //aplicacionInsertar.setId_Modulo(Integer.parseInt(cbxModulo.getSelectedItem().toString()));
+        //                aplicacionInsertar.setNombre_proveedor(txt_Nombre.getText());
+        //                aplicacionInsertar.setDireccion_proveedor(txt_Direccion.getText());
+        //                aplicacionInsertar.setContacto_proveedor(txt_Direccion.getText());
+        //                aplicacionInsertar.setTelefono_proveedor(txt_Direccion.getText());
+        //                aplicacionInsertar.setNit_proveedor(txt_Direccion.getText());
+        //                aplicacionInsertar.setEmail_proveedor(txt_Direccion.getText());
+        //                aplicacionInsertar.setEstatus_proveedor(txt_Direccion.getText());
+        //            }
+        //
+        //            }else {
+        //            JOptionPane.showMessageDialog(null, "Todos los campos tienen que estar llenos");
+        //        }
         llenadoDeTablas();
         limpiar();
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -430,8 +425,8 @@ public class MantenimientoProveedor extends javax.swing.JInternalFrame {
         try {
             if ((new File("src\\main\\java\\Comercial\\reportes\\AyudaMantenimientoProveedores.chm")).exists()) {
                 Process p = Runtime
-                .getRuntime()
-                .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\AyudaMantenimientoProveedores.chm");
+                        .getRuntime()
+                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\AyudaMantenimientoProveedores.chm");
                 p.waitFor();
             } else {
                 JOptionPane.showMessageDialog(null, "La ayuda no Fue encontrada");
