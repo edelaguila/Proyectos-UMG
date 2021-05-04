@@ -42,9 +42,9 @@ public class MDIHoteleria extends javax.swing.JFrame {
         this.setTitle("Usuario: " + "[" + Login.usuarioHoteleria + "]" + " \t" + "IP: [" + LoginMDI.getIp() + "]");
 
         GenerarPermisos generarPermisos = new GenerarPermisos();
-        var usuario = Login.usuarioHoteleria;
-        var modulo = "Hotelero";
-        generarPermisos.getPermisos(modulo, usuario);
+//        var usuario = Login.usuarioHoteleria;
+//        var modulo = "Hotelero";
+//        generarPermisos.getPermisos(modulo, usuario);
     }
     public void logo(int activar){
             Icon icon = new ImageIcon("C:src/main/java/Hoteleria/reportes/Imagen1.png");

@@ -130,6 +130,7 @@ producto.setText(Buscar.getProducto());
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);

@@ -5,7 +5,8 @@
  */
 package seguridad.vista;
 
-import Comercial.vista.MDIcomercial;
+import Comercial.vista.MDIComercial1;
+import Comercial.vista.MDIComercial1;
 import Finanzas.vista.MDIFinanzas;
 import Hoteleria.vista.MDIHoteleria;
 import com.formdev.flatlaf.FlatDarkLaf;
@@ -35,7 +36,7 @@ public class Login extends javax.swing.JFrame {
     public static String usuarioSesion = "";
     public static String usuarioFianzas = "";
     public static String usuarioHoteleria = "";
-    public static String usuarioComercial = "";
+    public static String usuarioComercial = "3001";
 
     public Login() {
         initComponents();
@@ -250,7 +251,7 @@ public class Login extends javax.swing.JFrame {
                                 
                                try {
                             usuarioComercial = txtUsuario.getText();
-                            MDIcomercial menucomercial = new MDIcomercial();
+                            MDIComercial1 menucomercial = new   MDIComercial1();
                             menucomercial.setVisible(true);
                             this.dispose();
 
@@ -321,7 +322,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btncambiodecontra;
-    private javax.swing.JComboBox<String> cbxAcceso;
+    public static javax.swing.JComboBox<String> cbxAcceso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

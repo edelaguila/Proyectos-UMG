@@ -32,10 +32,10 @@ public class MDIFinanzas extends javax.swing.JFrame {
     
     
     public MDIFinanzas() throws UnknownHostException {
-        var modulo_nombre = "Finanzas";
+//        var modulo_nombre = "Finanzas";
         initComponents();
         this.setTitle("Usuario: " + "[" + Login.usuarioFianzas + "]" + " \t" + "IP: [" + mdi_Components.getIp() + "]");
-        permisos.getPermisos(modulo_nombre, Login.usuarioFianzas);
+//        permisos.getPermisos(modulo_nombre, Login.usuarioFianzas);
     }
 
     @SuppressWarnings("unchecked")
