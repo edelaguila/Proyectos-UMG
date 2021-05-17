@@ -440,6 +440,7 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(BtnIng)
+<<<<<<< HEAD
                                             .addGap(18, 18, 18)
                                             .addComponent(BtnMod)
                                             .addGap(26, 26, 26)
@@ -451,6 +452,19 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel1)
                                             .addGap(18, 18, 18)
+=======
+                                            .addGap(18, 18, 18)
+                                            .addComponent(BtnMod)
+                                            .addGap(26, 26, 26)
+                                            .addComponent(btn_cancelar)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(btn_ayuda, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel2)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel1)
+                                            .addGap(18, 18, 18)
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
                                             .addComponent(txt_no_identificacion))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -644,7 +658,12 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
 
             entregaDAO.insert(entrega);
 
+<<<<<<< HEAD
             
+=======
+            actualizartabla();
+            limpiar();
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
             JOptionPane.showMessageDialog(null, "Habitación Entregada correctamente");
 
             ReservacionDAO reservaciondao = new ReservacionDAO();
@@ -657,7 +676,10 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
             reservacion.setDesde(desde);
             reservacion.setHasta(hasta);
             reservacion.setPrecio(precio);
+<<<<<<< HEAD
             reservacion.setCantidadpersonas(cantidadpersonas);
+=======
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
             reservacion.setEstado("1");
             reservaciondao.update(reservacion);
             opcion.setSelectedIndex(0);
@@ -665,18 +687,27 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Todos los campos tienen que estar llenos :)");
         }
+<<<<<<< HEAD
         actualizartabla();
         actualizar_tabla();
             limpiar();
+=======
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
     }//GEN-LAST:event_BtnIngActionPerformed
 
     private void BtnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModActionPerformed
         EntregaHabitaciones modificar = new EntregaHabitaciones();
         EntregaHabitacionDAO modificarDAO = new EntregaHabitacionDAO();
 
+<<<<<<< HEAD
         if (txt_Entrega.getText().length() != 0 && txt_reserva.getText().length() != 0 && Recibir.isSelected()
                 && txt_Habitaciones.getText().length() != 0 && txt_no_identificacion.getText().length() != 0
                 && txt_Nombre.getText().length() != 0 && fecha_actual.getDate() != null) {
+=======
+        if (txt_Entrega.getText().length() != 0 && txt_reserva.getText().length() != 0 && Entregar.isSelected()
+                && txt_Habitaciones.getText().length() != 0 && txt_no_identificacion.getText().length() != 0
+                && txt_Nombre.getText().length() != 0 && cantidad.getText().length() != 0 && fecha_actual.getDate() != null) {
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
 
             String id_entrega = txt_Entrega.getText();
             String reserva = txt_reserva.getText();
@@ -687,17 +718,33 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
 
             modificar.setPk_id_entrega(id_entrega);
             modificar.setPk_id_reservacion(reserva);
+<<<<<<< HEAD
             modificar.setPk_id_habitacion(habitaciones);
             modificar.setPk_no_identificacion(id_persona);
             modificar.setNombre(nombre);
             modificar.setFecha(fechaactual);
             modificar.setEstado(estado);
+=======
+            modificar.setPk_id_habitacion(id_persona);
+            modificar.setPk_no_identificacion(noidentificacion);
+            modificar.setNombre(nombre);
+            modificar.setFecha(fechaactual);
+            modificar.setEstado(estado);
+
+            if (Entregar.isSelected()) {
+                modificar.setEstado("1");
+            }
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
             if (Recibir.isSelected()) {
                 modificar.setEstado("2");
             }
             modificarDAO.update(modificar);
             actualizartabla();
+<<<<<<< HEAD
             
+=======
+            limpiar();
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
 
             ReservacionDAO reservaciondao = new ReservacionDAO();
             Reservacion reservacion = new Reservacion();
@@ -709,7 +756,10 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
             reservacion.setDesde(desde);
             reservacion.setHasta(hasta);
             reservacion.setPrecio(precio);
+<<<<<<< HEAD
             reservacion.setCantidadpersonas(cantidadpersonas);
+=======
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
             reservacion.setEstado("2");
             reservaciondao.update(reservacion);
             opcion.setSelectedIndex(0);
@@ -717,7 +767,10 @@ public class Asignaciones_Habitaciones extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Todos los campos tienen que estar llenos :)");
         }
+<<<<<<< HEAD
         limpiar();
+=======
+>>>>>>> 0a7d6a9c4cdd8ad42b3b585a40edf03235b412af
     }//GEN-LAST:event_BtnModActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
