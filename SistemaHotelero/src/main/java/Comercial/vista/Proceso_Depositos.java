@@ -39,19 +39,21 @@ import seguridad.vista.Login;
  * @author PERSONAL
  */
 public class Proceso_Depositos extends javax.swing.JInternalFrame {
-  ClienteDao Clientes= new   ClienteDao  ();
-  Cliente Buscar = new  Cliente ();
-   DepositosDAO C = new   DepositosDAO  ();
-    Deposito B = new  Deposito();
+
+    ClienteDao Clientes = new ClienteDao();
+    Cliente Buscar = new Cliente();
+    DepositosDAO C = new DepositosDAO();
+    Deposito B = new Deposito();
     int estadovalidacion;
-    
+
     int variable1;
+
     /**
      * Creates new form Proceso_Factura
      */
-     void habilitarAcciones() {
+    void habilitarAcciones() {
 
-      int   codigoAplicacion = 3005;
+        int codigoAplicacion = 3005;
         var usuario = Login.usuarioComercial;
 
         btnAgregar.setEnabled(false);
@@ -80,115 +82,112 @@ public class Proceso_Depositos extends javax.swing.JInternalFrame {
             btnEliminar.setEnabled(true);
         }
     }
-    
-     public void llenadoDeCombos() {
-        
-        List<Cliente> Buscar =  Clientes.select();
+
+    public void llenadoDeCombos() {
+
+        List<Cliente> Buscar = Clientes.select();
         cbox_empleado.addItem("Seleccione un cliente");
         for (int i = 0; i < Buscar.size(); i++) {
             cbox_empleado.addItem(Buscar.get(i).getCliente());
-             String valor =  cbox_empleado.getSelectedItem().toString();
-   
+            String valor = cbox_empleado.getSelectedItem().toString();
 
-    }}
-     public void validar(){ 
-         String valor =  cbox_empleado.getSelectedItem().toString();
-       Buscar.setCliente(valor);
-       Buscar =   Clientes.query2( Buscar);
-      
-            estadovalidacion = 1;
-            cliente.setText(  Buscar.getCliente());
-     
- buscar();         
-    
-
-            estadovalidacion = 0;
         }
- 
-public void llenadoDeTablas() {
-    
-    /**
- *
- * creaccion de la tabla de de titulos  
- */
+    }
+
+    public void validar() {
+        String valor = cbox_empleado.getSelectedItem().toString();
+        Buscar.setCliente(valor);
+        Buscar = Clientes.query2(Buscar);
+
+        estadovalidacion = 1;
+        cliente.setText(Buscar.getCliente());
+
+        buscar();
+
+        estadovalidacion = 0;
+    }
+
+    public void llenadoDeTablas() {
+
+        /**
+         *
+         * creaccion de la tabla de de titulos
+         */
         DefaultTableModel modelo = new DefaultTableModel();
-    modelo.addColumn("Id_pedido");
+        modelo.addColumn("Id_pedido");
         modelo.addColumn("Cliente");
-          modelo.addColumn("Cuenta");
-            modelo.addColumn("Fecha Inicial");
-              modelo.addColumn("Fecha Final");
+        modelo.addColumn("Cuenta");
+        modelo.addColumn("Fecha Inicial");
+        modelo.addColumn("Fecha Final");
         modelo.addColumn("Nit");
-          modelo.addColumn("Telefono");
-          modelo.addColumn("Poducto");
-           modelo.addColumn("Detalle");
-            modelo.addColumn("Cantidad");
-  
-   DepositosDAO  ventasDAO = new    DepositosDAO();
-      
-  
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Poducto");
+        modelo.addColumn("Detalle");
+        modelo.addColumn("Cantidad");
 
+        DepositosDAO ventasDAO = new DepositosDAO();
 
-       List<Deposito> ventas = ventasDAO.select();
+        List<Deposito> ventas = ventasDAO.select();
         JtProductos1.setModel(modelo);
         String[] dato = new String[10];
-    for (int i = 0; i < ventas.size(); i++) {
-         dato[0] = (ventas.get(i).getId_pedido());
+        for (int i = 0; i < ventas.size(); i++) {
+            dato[0] = (ventas.get(i).getId_pedido());
             dato[1] = (ventas.get(i).getCliente());
             dato[2] = ventas.get(i).getCuenta();
-             dato[3] = (ventas.get(i).getFecha_inicial());
-              dato[4] = (ventas.get(i).getFecha_final());          
-              dato[5] = ventas.get(i).getNit();
+            dato[3] = (ventas.get(i).getFecha_inicial());
+            dato[4] = (ventas.get(i).getFecha_final());
+            dato[5] = ventas.get(i).getNit();
             dato[6] = (ventas.get(i).getTelefono());
-          dato[7] = (ventas.get(i).getProducto());
-             dato[8] = (ventas.get(i).getDetalle());
-                dato[9] = (ventas.get(i).getCantidad());
-           
-          
-          
-          
-          
+            dato[7] = (ventas.get(i).getProducto());
+            dato[8] = (ventas.get(i).getDetalle());
+            dato[9] = (ventas.get(i).getCantidad());
+
             System.out.println("vendedor:" + ventas);
             modelo.addRow(dato);
         }
-     }
- public void buscar() {
-  Buscar.setCliente(cliente.getText());
-Buscar=Clientes.query2(Buscar);         
-nit.setText(Buscar.getNit());
-//monto.setText(Buscar.getMonto());
-telefono.setText(Buscar.getTelefono());
-producto.setText(Buscar.getProducto());
-cuenta.setText(Buscar.getCuenta());
-  
     }
-public void buscarVendedor() {
-          
- B.setId_pedido(i.getText());
-B=C.query3(B);
 
-nit.setText(B.getNit());
-telefono.setText(B.getTelefono());
-producto.setText(B.getProducto());
-cuenta.setText(B.getCuenta());
-detalle.setText(B.getDetalle());
-cliente.setText(B.getCliente());
-f1.setText(B.getFecha_inicial());
-f2.setText(B.getFecha_final());
-cantidad.setText(B.getCantidad());
+    public void buscar() {
+        Buscar.setCliente(cliente.getText());
+        Buscar = Clientes.query2(Buscar);
+        nit.setText(Buscar.getNit());
+//monto.setText(Buscar.getMonto());
+        telefono.setText(Buscar.getTelefono());
+        producto.setText(Buscar.getProducto());
+        cuenta.setText(Buscar.getCuenta());
 
-}
-  public void limpiar() {
+    }
+
+    public void buscarVendedor() {
+
+        B.setId_pedido(i.getText());
+        B = C.query3(B);
+
+        nit.setText(B.getNit());
+        telefono.setText(B.getTelefono());
+        producto.setText(B.getProducto());
+        cuenta.setText(B.getCuenta());
+        detalle.setText(B.getDetalle());
+        cliente.setText(B.getCliente());
+        f1.setText(B.getFecha_inicial());
+        f2.setText(B.getFecha_final());
+        cantidad.setText(B.getCantidad());
+
+    }
+
+    public void limpiar() {
         i.setText("");
         cliente.setText("");
         nit.setText("");
         telefono.setText("");
-           producto.setText("");
-           cuenta.setText("");
-             cantidad.setText("");
-              f1.setText("");
-               f2.setText("");
-                 detalle.setText("");
+        producto.setText("");
+        cuenta.setText("");
+        cantidad.setText("");
+        f1.setText("");
+        f2.setText("");
+        detalle.setText("");
     }
+
     /**
      * Creates new form Proceso_Depositos
      */
@@ -198,7 +197,6 @@ cantidad.setText(B.getCantidad());
         llenadoDeTablas();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -526,139 +524,138 @@ cantidad.setText(B.getCantidad());
     }//GEN-LAST:event_cuentaActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-buscarVendedor();
-BitacoraDao BitacoraDAO = new BitacoraDao();
-            
+        buscarVendedor();
+        BitacoraDao BitacoraDAO = new BitacoraDao();
+
         Bitacora Insertar = new Bitacora();
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Buscar");
-    
- Insertar.setCodigoAplicacion("3006");
-           Insertar.setModulo("3000");
 
-            try {
-                BitacoraDAO.insert(Insertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        Insertar.setCodigoAplicacion("3006");
+        Insertar.setModulo("3000");
+
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-                DepositosDAO ClienteDAO = new   DepositosDAO  ();
-             String fecha1 = new SimpleDateFormat("dd/MM/yyyy").format(fechai.getDate());
-              String fecha2 = new SimpleDateFormat("dd/MM/yyyy").format(fechaf.getDate());
-                Deposito AInsertar = new  Deposito();
+        DepositosDAO ClienteDAO = new DepositosDAO();
+        String fecha1 = new SimpleDateFormat("dd/MM/yyyy").format(fechai.getDate());
+        String fecha2 = new SimpleDateFormat("dd/MM/yyyy").format(fechaf.getDate());
+        Deposito AInsertar = new Deposito();
 //                AInsertar.(ID.getText());
-                AInsertar.setCliente(cliente.getText());
-                  AInsertar.setCuenta(cuenta.getText());
-                AInsertar.setNit(nit.getText());
-                  AInsertar.setFecha_inicial(fecha1);
-                AInsertar.setFecha_final(fecha2);         
-                AInsertar.setTelefono(telefono.getText());
-                AInsertar.setProducto(producto.getText());
-                    AInsertar.setDetalle(detalle.getText());
-                       AInsertar.setCantidad(cantidad.getText());
-                ClienteDAO.insert(AInsertar);
-        
-                llenadoDeTablas();
+        AInsertar.setCliente(cliente.getText());
+        AInsertar.setCuenta(cuenta.getText());
+        AInsertar.setNit(nit.getText());
+        AInsertar.setFecha_inicial(fecha1);
+        AInsertar.setFecha_final(fecha2);
+        AInsertar.setTelefono(telefono.getText());
+        AInsertar.setProducto(producto.getText());
+        AInsertar.setDetalle(detalle.getText());
+        AInsertar.setCantidad(cantidad.getText());
+        ClienteDAO.insert(AInsertar);
 
-                
-    BitacoraDao BitacoraDAO = new BitacoraDao();
-            
+        llenadoDeTablas();
+
+        BitacoraDao BitacoraDAO = new BitacoraDao();
+
         Bitacora Insertar = new Bitacora();
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Insertar");
-    
- Insertar.setCodigoAplicacion("3006");
-           Insertar.setModulo("3000");
 
-            try {
-                BitacoraDAO.insert(Insertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            limpiar();
-               JOptionPane.showMessageDialog(null, " A sido  un exito");
-        
+        Insertar.setCodigoAplicacion("3006");
+        Insertar.setModulo("3000");
+
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        limpiar();
+        JOptionPane.showMessageDialog(null, " A sido  un exito");
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-     DepositosDAO Da1 = new   DepositosDAO  ();
-             
-                Deposito AModifica1 = new  Deposito();
+        DepositosDAO Da1 = new DepositosDAO();
+
+        Deposito AModifica1 = new Deposito();
 //               
-                               AModifica1.setCliente(cliente.getText());
-                AModifica1.setCuenta(cuenta.getText());
-                AModifica1.setNit(nit.getText());
-                AModifica1.setFecha_inicial(f1.getText());
-                AModifica1.setFecha_final(f2.getText());      
-                AModifica1.setTelefono(telefono.getText());
-                AModifica1.setProducto(producto.getText());
-                AModifica1.setDetalle(detalle.getText());
-                AModifica1.setCantidad(cantidad.getText());
-                Da1.update1(AModifica1);
-        
-                llenadoDeTablas(); 
-                    BitacoraDao BitacoraDAO = new BitacoraDao();
-            limpiar();
+        AModifica1.setCliente(cliente.getText());
+        AModifica1.setCuenta(cuenta.getText());
+        AModifica1.setNit(nit.getText());
+        AModifica1.setFecha_inicial(f1.getText());
+        AModifica1.setFecha_final(f2.getText());
+        AModifica1.setTelefono(telefono.getText());
+        AModifica1.setProducto(producto.getText());
+        AModifica1.setDetalle(detalle.getText());
+        AModifica1.setCantidad(cantidad.getText());
+        Da1.update1(AModifica1);
+
+        llenadoDeTablas();
+        BitacoraDao BitacoraDAO = new BitacoraDao();
+        limpiar();
         Bitacora Insertar = new Bitacora();
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Modificar");
-    
- Insertar.setCodigoAplicacion("3006");
-           Insertar.setModulo("3000");
 
-            try {
-                BitacoraDAO.insert(Insertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-              JOptionPane.showMessageDialog(null, " A sido  un exito");
-            
-        
+        Insertar.setCodigoAplicacion("3006");
+        Insertar.setModulo("3000");
+
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JOptionPane.showMessageDialog(null, " A sido  un exito");
+
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-  DepositosDAO DAO = new   DepositosDAO  ();
-             
-                Deposito AEliminar = new  Deposito();
+        DepositosDAO DAO = new DepositosDAO();
+
+        Deposito AEliminar = new Deposito();
 //               
-                AEliminar.setId_pedido(i.getText());
-                AEliminar.setCliente(cliente.getText());
-                AEliminar.setCuenta(cuenta.getText());
-                AEliminar.setNit(nit.getText());
-                    AEliminar.setFecha_inicial(f1.getText());
-                AEliminar.setFecha_final(f2.getText());      
-                AEliminar.setTelefono(telefono.getText());
-                AEliminar.setProducto(producto.getText());
-                AEliminar.setDetalle(detalle.getText());
-                      AEliminar.setCantidad(cantidad.getText());
-                DAO.delete(AEliminar);
-        
-                llenadoDeTablas();     
-                    BitacoraDao BitacoraDAO = new BitacoraDao();
-            
+        AEliminar.setId_pedido(i.getText());
+        AEliminar.setCliente(cliente.getText());
+        AEliminar.setCuenta(cuenta.getText());
+        AEliminar.setNit(nit.getText());
+        AEliminar.setFecha_inicial(f1.getText());
+        AEliminar.setFecha_final(f2.getText());
+        AEliminar.setTelefono(telefono.getText());
+        AEliminar.setProducto(producto.getText());
+        AEliminar.setDetalle(detalle.getText());
+        AEliminar.setCantidad(cantidad.getText());
+        DAO.delete(AEliminar);
+
+        llenadoDeTablas();
+        BitacoraDao BitacoraDAO = new BitacoraDao();
+
         Bitacora Insertar = new Bitacora();
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Eliminar");
-    
- Insertar.setCodigoAplicacion("3006");
-           Insertar.setModulo("3000");
 
-            try {
-                BitacoraDAO.insert(Insertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            limpiar();
-              JOptionPane.showMessageDialog(null, " A sido  un exito");
-        
+        Insertar.setCodigoAplicacion("3006");
+        Insertar.setModulo("3000");
+
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        limpiar();
+        JOptionPane.showMessageDialog(null, " A sido  un exito");
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- validar();
+        validar();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -667,15 +664,15 @@ BitacoraDao BitacoraDAO = new BitacoraDao();
     }//GEN-LAST:event_clienteActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-detalle.setText("Deposito");
+        detalle.setText("Deposito");
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-detalle.setText("Devolucion");
-        
+        detalle.setText("Devolucion");
+
     }//GEN-LAST:event_jRadioButton2ActionPerformed
-private Connection connection = null;
+    private Connection connection = null;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Map p = new HashMap();
         JasperReport report;
@@ -684,7 +681,7 @@ private Connection connection = null;
         try {
             connection = Conexion.getConnection();
             report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
-                + "/src/main/java/Comercial/reportes/ProcesoDeposito.jrxml");
+                    + "/src/main/java/Comercial/reportes/ProcesoDeposito.jrxml");
             print = JasperFillManager.fillReport(report, p, connection);
             JasperViewer view = new JasperViewer(print, false);
             view.setTitle("Proceso Deposito ");
@@ -701,8 +698,8 @@ private Connection connection = null;
         try {
             if ((new File("src\\main\\java\\Comercial\\reportes\\procesosdeposito.chm")).exists()) {
                 Process p = Runtime
-                .getRuntime()
-                .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\procesosdeposito.chm");
+                        .getRuntime()
+                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\procesosdeposito.chm");
                 p.waitFor();
             } else {
                 JOptionPane.showMessageDialog(null, "La ayuda no Fue encontrada");

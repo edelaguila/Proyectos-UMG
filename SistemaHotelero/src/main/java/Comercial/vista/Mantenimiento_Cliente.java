@@ -57,7 +57,7 @@ public class Mantenimiento_Cliente extends javax.swing.JInternalFrame {
             permisosApp[i] = permisos.getAccionesAplicacion(codigoAplicacion, usuario)[i];
         }
 
-        if (permisosApp[0].equals("0")) {
+        if (permisosApp[0].equals("1")) {
             btnAgregar.setEnabled(true);
         }
         if (permisosApp[1].equals("1")) {

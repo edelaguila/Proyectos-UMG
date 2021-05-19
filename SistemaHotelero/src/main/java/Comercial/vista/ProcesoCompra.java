@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Comercial.vista;
+
 import java.sql.Connection;
 import java.awt.event.KeyEvent;
 import java.util.Vector;
@@ -50,14 +51,15 @@ import seguridad.vista.Login;
  * @author SipaqueRitaMaria
  */
 public class ProcesoCompra extends javax.swing.JInternalFrame {
-      ProveedorDAO1 cargarCombobox = new ProveedorDAO1();
+
+    ProveedorDAO1 cargarCombobox = new ProveedorDAO1();
     int estadovalidacion;
     ProductoDAO productos = new ProductoDAO();
     int variable1;
     DefaultTableModel model = new DefaultTableModel();
-     ButtonGroup RadiosGrupo;
-     int codigoAplicacion = 3007;
-    
+    ButtonGroup RadiosGrupo;
+    int codigoAplicacion = 3007;
+
     void habilitarAcciones() {
 
         int codigoAplicacion = 3001;
@@ -88,7 +90,7 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
         if (permisosApp[3].equals("1")) {
             Eliminar.setEnabled(true);
         }
-     }
+    }
 
     /**
      * Creates new form ProcesoCompra
@@ -104,18 +106,14 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
         model.addColumn("NIT");
         model.addColumn("NOMBRE");
         model.addColumn("PRECIO");
-        
         model.addColumn("NO.PRODUCTO");
         model.addColumn("CANTIDAD");
         model.addColumn("SUBTOTAL");
-        
         model.addColumn("FECHA");
-       
-
         this.tbtTabla.setModel(model);
-        
-        Date sistFecha=new Date ();
-        SimpleDateFormat formato =new SimpleDateFormat("dd-MMM-YYYY");
+
+        Date sistFecha = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-YYYY");
         txt_fecha.setText(formato.format(sistFecha));
         RadiosGrupo = new ButtonGroup();
         RadiosGrupo.add(RBEP1);
@@ -265,6 +263,11 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de Compra"));
 
         txt_fecha.setEditable(false);
+        txt_fecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_fechaActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Id Producto:");
@@ -456,43 +459,45 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RBEP1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RBEP0)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RBEPvacio)
+                                .addGap(30, 30, 30)
+                                .addComponent(GenerarCompra)
+                                .addGap(49, 49, 49)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RBEP1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RBEP0)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RBEPvacio)
-                        .addGap(30, 30, 30)
-                        .addComponent(GenerarCompra)
-                        .addGap(49, 49, 49)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel17)
-                        .addGap(76, 76, 76))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_idfacutra, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel21)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Ayuda)
-                .addGap(271, 271, 271))
+                        .addGap(320, 320, 320)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel17)
+                                .addGap(76, 76, 76))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_idfacutra, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel21)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Ayuda)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,7 +530,7 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
                         .addComponent(RBEPvacio))
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(GenerarCompra))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -540,7 +545,7 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
         try {
             connection = Conexion.getConnection();
             report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
-                + "/src/main/java/Comercial/reportes/ReporteCompra.jrxml");
+                    + "/src/main/java/Comercial/reportes/ReporteCompra.jrxml");
             print = JasperFillManager.fillReport(report, p, connection);
             JasperViewer view = new JasperViewer(print, false);
             view.setTitle("Reporte de Proceso compras");
@@ -549,15 +554,15 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-         txt_idfacutra.setText("");
+        txt_idfacutra.setText("");
         txt_nombre.setText("");
-         txt_combox.setSelectedIndex(0);
-       
+        txt_combox.setSelectedIndex(0);
+
         txt_nit.setText("");
-        
+
         model.getDataVector().removeAllElements();
         tbtTabla.updateUI();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
@@ -565,19 +570,18 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
 
         eliminar();
         BitacoraDao BitacoraDAO = new BitacoraDao();
-            
-        
-       Bitacora Insertar = new Bitacora();
+
+        Bitacora Insertar = new Bitacora();
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Eliminar");
 
         Insertar.setCodigoAplicacion("3007");
         Insertar.setModulo("3000");
-            try {
-                BitacoraDAO.insert(Insertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void valiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valiarActionPerformed
@@ -601,10 +605,8 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
 
     private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
         // TODO add your handling code here:
-       
-        
 
-          String valor = txt_combox.getSelectedItem().toString();
+        String valor = txt_combox.getSelectedItem().toString();
         int valorint = Integer.parseInt(valor);
         ProveedorDAO1 perfilDAO = new ProveedorDAO1();
         Proveedor perfilconsultar = new Proveedor();
@@ -614,44 +616,39 @@ public class ProcesoCompra extends javax.swing.JInternalFrame {
             estadovalidacion = 1;
 
             txt_nombre.setText(perfilconsultar.getNombre_proveedor());
-            
 
             txt_nit.setText(perfilconsultar.getNit_proveedor());
         } else {
 
             estadovalidacion = 0;
         }
-        
+
         BitacoraDao BitacoraDAO = new BitacoraDao();
-            
-        
-       Bitacora Insertar = new Bitacora();
+
+        Bitacora Insertar = new Bitacora();
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Buscar");
 
         Insertar.setCodigoAplicacion("3007");
         Insertar.setModulo("3000");
-            try {
-                BitacoraDAO.insert(Insertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-        
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_validarActionPerformed
 
     private void RBEP0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBEP0ActionPerformed
         // TODO add your handling code here:
 
-prueba uno= new prueba();
-MDIComercial.jdpescritorio.add(uno);
-uno.toFront();
-uno.setVisible(true);
+        prueba uno = new prueba();
+        MDIComercial.jdpescritorio.add(uno);
+        uno.toFront();
+        uno.setVisible(true);
 
 
-        
-        
-        
     }//GEN-LAST:event_RBEP0ActionPerformed
 
     private void GenerarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarCompraActionPerformed
@@ -727,19 +724,18 @@ uno.setVisible(true);
         txt_cantidad.setText("");
         txt_1.setText("");
         BitacoraDao BitacoraDAO = new BitacoraDao();
-            
-        
-       Bitacora Insertar = new Bitacora();
+
+        Bitacora Insertar = new Bitacora();
         Insertar.setId_Usuario(Login.usuarioComercial);
         Insertar.setAccion("Guardar");
 
         Insertar.setCodigoAplicacion("3007");
         Insertar.setModulo("3000");
-            try {
-                BitacoraDAO.insert(Insertar);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_GenerarCompraActionPerformed
 
@@ -748,8 +744,8 @@ uno.setVisible(true);
         try {
             if ((new File("src\\main\\java\\Comercial\\reportes\\AyudaProcesoCompra.chm")).exists()) {
                 Process p = Runtime
-                .getRuntime()
-                .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\AyudaProcesoCompra.chm");
+                        .getRuntime()
+                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\AyudaProcesoCompra.chm");
                 p.waitFor();
             } else {
                 JOptionPane.showMessageDialog(null, "La ayuda no Fue encontrada");
@@ -759,7 +755,11 @@ uno.setVisible(true);
             ex.printStackTrace();
         }
     }//GEN-LAST:event_AyudaActionPerformed
-private double redondear(double num) {
+
+    private void txt_fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_fechaActionPerformed
+    private double redondear(double num) {
         return Math.rint(num * 100) / 100;
     }
 
@@ -787,16 +787,17 @@ private double redondear(double num) {
         double S = 0, tot;
         for (int i = 0; i < tbtTabla.getRowCount(); i++) {
             S = S + Double.parseDouble(model.getValueAt(i, 8).toString());
-            
+
         }
         S = redondear(S);
         //txt_subtotal.setText(String.valueOf(S));
 
         tot = S;
         tot = redondear(tot);
-        
+
         txt_total.setText(String.valueOf(tot));
-    }private Connection connection = null;
+    }
+    private Connection connection = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ayuda;
