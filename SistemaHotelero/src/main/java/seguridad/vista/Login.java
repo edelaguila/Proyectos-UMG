@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import seguridad.datos.BitacoraDao;
+import seguridad.datos.Hash;
 import seguridad.datos.UsuarioDAO;
 import seguridad.dominio.Usuario;
 import seguridad.datos.PermisosDAO;
@@ -194,9 +195,8 @@ public class Login extends javax.swing.JFrame {
 
                 Insertar.setModulo("Login");
 
-
                 Insertar.setModulo("0000");
-                
+
                 try {
                     BitacoraDAO.insert(Insertar);
                 } catch (UnknownHostException ex) {
@@ -206,18 +206,10 @@ public class Login extends javax.swing.JFrame {
                 System.out.println(usuarioAConsultar.toString());
                 // Recuperación de información a través de otro objeto
                 usuarioAConsultar = usuarioDAO.query(usuarioAConsultar);
+                // se hace llamada a Hahs.sha1 para ingresar contraseña normalmente 
+                String nuevoPass = Hash.sha1(txtContraseña.getText());
 
-//                System.out.println("regresa " + usuarioAConsultar.toString());
-//
-//                System.out.println("regresa contraseña " + txtContraseña.getText());
-//
-//                System.out.println("regresa objeto contraseña " + usuarioAConsultar.getPassword_usuario());
-//
-//                System.out.println("regresa usuario " + txtUsuario.getText());
-//
-//                System.out.println("regresa objeto usuario " + usuarioAConsultar.getId_usuario());
-                //**********************************************************************************************************************************************************************           
-                if (txtContraseña.getText().equals(usuarioAConsultar.getPassword_usuario()) && txtUsuario.getText().equals(usuarioAConsultar.getUser_usuario())) {
+                if (nuevoPass.equals(usuarioAConsultar.getPassword_usuario()) && txtUsuario.getText().equals(usuarioAConsultar.getUser_usuario())) {
                     //  if (txtUsuario.getText().equals(Integer.toString(usuarioAConsultar.getId_usuario()))) {
                     // if (txtContraseña.getText().equals(usuarioAConsultar.getPassword_usuario())){
                     JOptionPane.showMessageDialog(null, "Bienvenido\n", "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);

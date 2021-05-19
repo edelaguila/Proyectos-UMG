@@ -92,7 +92,7 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
         txtnombrebodega.setText(Buscar.getNombre_bodega());
         txtExistenciasProducto.setText(Buscar.getExistencias_producto());
         txtProductoNuevo.setText(Buscar.getProductoNuevo());
-       // cbox_BodegasNuevaExistencia.setText(Buscar.getBodegasNuevaExistencia());
+        // cbox_BodegasNuevaExistencia.setText(Buscar.getBodegasNuevaExistencia());
 
     }
 
@@ -100,7 +100,7 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
         initComponents();
         Date sistFecha = new Date();
         SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-YYYY");
-       // txtfechaActualizacion.setCalendar(formato(sistFecha));
+        // txtfechaActualizacion.setCalendar(formato(sistFecha));
     }
 
     /**
@@ -132,6 +132,7 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -282,6 +283,13 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
             }
         });
 
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -291,10 +299,12 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnModificar)
-                        .addGap(23, 23, 23)
-                        .addComponent(btnEliminar)
+                        .addComponent(btnGuardar)
                         .addGap(18, 18, 18)
+                        .addComponent(btnModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnReporte)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -307,7 +317,8 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar)
                     .addComponent(btnModificar)
-                    .addComponent(btnReporte))
+                    .addComponent(btnReporte)
+                    .addComponent(btnGuardar))
                 .addGap(40, 40, 40))
         );
 
@@ -502,12 +513,49 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
         limpiar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        GenerarPermisos permisos = new GenerarPermisos();
+        MDI_Components mdi_Components = new MDI_Components();
+        String cbx_AccesoSeguridad = txt_combox.getSelectedItem().toString();
+        String id = "0";
+        MantenimientoProductos manteminetoProductosDAO = new MantenimientoProductos();
+        ProcesoProductoDAO productoDAO = new ProcesoProductoDAO();
+        ProcesoProducto productoAInsertar = new ProcesoProducto();
+
+        productoAInsertar.setPK_id_procesoproducto((int) Integer.parseInt(txtIDNombreProducto.getText()));
+        productoAInsertar.setNombre_producto(txt_combox.getSelectedItem().toString());
+        productoAInsertar.setNombre_bodega(txtnombrebodega.getText());
+        productoAInsertar.setExistencias_producto(txtExistenciasProducto.getText());
+        productoAInsertar.setFechaActualizacion(txtfechaActualizacion.getDateFormatString());
+        productoAInsertar.setProductoNuevo(txtProductoNuevo.getText());
+        productoAInsertar.setNuevaExistencia(txtNuevaExistencia.getText());
+        productoAInsertar.setBodegasNuevaExistencia(cbox_BodegasNuevaExistencia.getSelectedItem().toString());
+        productoDAO.insert(productoAInsertar);
+
+        BitacoraDao BitacoraDAO = new BitacoraDao();
+        Bitacora Insertar = new Bitacora();
+        Insertar.setId_Usuario("MantenimientoProductos");
+        Insertar.setAccion("Insertar");
+        Insertar.setCodigoAplicacion("3000");
+        Insertar.setId_Usuario(Login.usuarioComercial);
+
+        try {
+            BitacoraDAO.insert(Insertar);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(Aplicacion_Perfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        llenadoDeTablas();
+        limpiar();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaProducto;
     private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnReporte;
     private javax.swing.JComboBox<String> cbox_BodegasNuevaExistencia;
