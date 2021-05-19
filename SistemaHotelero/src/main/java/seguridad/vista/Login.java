@@ -206,8 +206,10 @@ public class Login extends javax.swing.JFrame {
                 System.out.println(usuarioAConsultar.toString());
                 // Recuperación de información a través de otro objeto
                 usuarioAConsultar = usuarioDAO.query(usuarioAConsultar);
+
                 // se hace llamada a Hahs.sha1 para ingresar contraseña normalmente 
                 String nuevoPass = Hash.sha1(txtContraseña.getText());
+                //ya no se utiliza txtContraseña ya que hace llamada a nuevoPass
 
                 if (nuevoPass.equals(usuarioAConsultar.getPassword_usuario()) && txtUsuario.getText().equals(usuarioAConsultar.getUser_usuario())) {
                     //  if (txtUsuario.getText().equals(Integer.toString(usuarioAConsultar.getId_usuario()))) {
