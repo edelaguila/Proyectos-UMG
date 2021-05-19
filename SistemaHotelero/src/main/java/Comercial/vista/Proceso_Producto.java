@@ -70,7 +70,10 @@ public class Proceso_Producto extends javax.swing.JInternalFrame {
             dato[1] = procesoproducto.get(i).getNombre_producto();
             dato[2] = procesoproducto.get(i).getNombre_bodega();
             dato[3] = procesoproducto.get(i).getExistencias_producto();
-
+            dato[4] = procesoproducto.get(i).getBodegasNuevaExistencia();
+            dato[5] = procesoproducto.get(i).getNuevaExistencia();
+            dato[6] = procesoproducto.get(i).getBodegasNuevaExistencia();
+                    
             //System.out.println("vendedor:" + vendedores);
             modelo.addRow(dato);
         }
