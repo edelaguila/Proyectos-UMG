@@ -728,7 +728,7 @@ private java.sql.Connection connection = null;
         MDIComercial.jdpescritorio.add(uno);
         uno.toFront();
         uno.setVisible(true);
-        Proceso_Producto.txtProductoNuevo.setText(txt_nombreproducto.getText());
+//        Proceso_Producto.txtProductoNuevo.setText(txt_nombreproducto.getText());
         Proceso_Producto.txtNuevaExistencia.setText(txt_cantidad.getText());
 
     }//GEN-LAST:event_RBEP0ActionPerformed

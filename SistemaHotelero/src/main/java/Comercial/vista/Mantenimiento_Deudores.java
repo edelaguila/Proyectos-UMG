@@ -216,13 +216,13 @@ producto.setText(Buscar.getProducto());
 
         JtProductos1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Dedudores", "Telefono", "Producto", "Estatus ", "Capitall"
             }
         ));
         jScrollPane1.setViewportView(JtProductos1);
@@ -380,10 +380,10 @@ producto.setText(Buscar.getProducto());
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      try {
-            if ((new File("src\\main\\java\\Comercial\\reportes\\Clientes.chm")).exists()) {
+            if ((new File("src\\main\\java\\Comercial\\reportes\\MAcreedoresm.chm")).exists()) {
                 Process p = Runtime
                         .getRuntime()
-                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\Clientes.chm");
+                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\MAcreedoresm.chm");
                 p.waitFor();
             } else {
                 JOptionPane.showMessageDialog(null, "La ayuda no Fue encontrada");
@@ -540,10 +540,10 @@ private Connection connection = null;
         try {
             connection = Conexion.getConnection();
             report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
-                + "/src/main/java/Comercial/reportes/MantenimientoDeudor.jrxml");
+                + "/src/main/java/Comercial/reportes/Deudor.jrxml");
             print = JasperFillManager.fillReport(report, p, connection);
             JasperViewer view = new JasperViewer(print, false);
-            view.setTitle("deudor ");
+            view.setTitle("Deudor ");
             view.setVisible(true);
 
         } catch (Exception e) {

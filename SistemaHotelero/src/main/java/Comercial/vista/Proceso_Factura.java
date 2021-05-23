@@ -378,13 +378,13 @@ tar.setText(buscarf.getTipo());
 
         JtProductos1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cliente", "Nit", "Telefono", "Producto", "Precio", "Cantidad", "Monoto", "Total", "Tipo"
             }
         ));
         jScrollPane1.setViewportView(JtProductos1);
@@ -666,7 +666,7 @@ tar.setText(buscarf.getTipo());
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -684,8 +684,9 @@ tar.setText(buscarf.getTipo());
                                 .addGap(18, 18, 18)
                                 .addComponent(btnModificar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton7)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jButton7)))
+                        .addGap(0, 130, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,20 +714,15 @@ tar.setText(buscarf.getTipo());
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 7, Short.MAX_VALUE)
-                        .addComponent(btnAgregar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnModificar)
-                            .addComponent(jButton7))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnModificar)
+                    .addComponent(jButton7)
+                    .addComponent(btnAgregar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Datos  de  Cliente");
@@ -791,8 +787,8 @@ tar.setText(buscarf.getTipo());
         MDIComercial.jdpescritorio.add(E2);
         E2.toFront();
         E2.setVisible(true);
-        Proceso_Producto.txtProductoNuevo.setText(producto.getText());
-        Proceso_Producto.txtNuevaExistencia.setText(E.getText());
+        Proceso_Producto.txtNuevaExistencia.setText(producto.getText());
+        Proceso_Producto.txtExistenciasTotales.setText(E.getText());
 
         tot2 = tot2 + tot3;
 
@@ -890,8 +886,8 @@ buscarVendedor1();
         MDIComercial.jdpescritorio.add(E2);
         E2.toFront();
         E2.setVisible(true);
-        Proceso_Producto.txtProductoNuevo.setText(producto.getText());
-        Proceso_Producto.txtNuevaExistencia.setText(E.getText());
+     Proceso_Producto.txtNuevaExistencia.setText(producto.getText());
+        Proceso_Producto.txtExistenciasTotales.setText(E.getText());
 
         BitacoraDao BitacoraDAO = new BitacoraDao();
 
@@ -940,8 +936,8 @@ buscarVendedor1();
         MDIComercial.jdpescritorio.add(E2);
         E2.toFront();
         E2.setVisible(true);
-        Proceso_Producto.txtProductoNuevo.setText(producto.getText());
-        Proceso_Producto.txtNuevaExistencia.setText(E.getText());
+        Proceso_Producto.txtNuevaExistencia.setText(producto.getText());
+        Proceso_Producto.txtExistenciasTotales.setText(E.getText());
 
         BitacoraDao BitacoraDAO = new BitacoraDao();
         limpiar();
@@ -969,10 +965,10 @@ buscarVendedor1();
         try {
             connection = Conexion.getConnection();
             report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
-                    + "/src/main/java/Comercial/reportes/PFactura.jrxml");
+                    + "/src/main/java/Comercial/reportes/pedidofactura.jrxml");
             print = JasperFillManager.fillReport(report, p, connection);
             JasperViewer view = new JasperViewer(print, false);
-            view.setTitle("deudor ");
+            view.setTitle("Pedidido Factura ");
             view.setVisible(true);
 
         } catch (Exception e) {
@@ -984,10 +980,10 @@ buscarVendedor1();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            if ((new File("src\\main\\java\\Comercial\\reportes\\facturapedido.chm")).exists()) {
+            if ((new File("src\\main\\java\\Comercial\\reportes\\Pfactura.chm")).exists()) {
                 Process p = Runtime
                         .getRuntime()
-                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\facturapedido.chm");
+                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\Comercial\\reportes\\Pfactura.chm");
                 p.waitFor();
             } else {
                 JOptionPane.showMessageDialog(null, "La ayuda no Fue encontrada");

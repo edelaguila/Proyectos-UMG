@@ -218,9 +218,10 @@ public class GenerarPermisos {
                 MDIComercial.M_venta.setVisible(false);
                 MDIComercial.M_compras.setVisible(false);
                 MDIComercial.M_inventario.setVisible(false);
-                MDIComercial.P_ventas.setVisible(true);
+                MDIComercial.P_ventas.setVisible(false);
                 MDIComercial.P_compras.setVisible(false);
-                 MDIComercial.P_pedido_factura.setVisible(true);
+                 MDIComercial.P_producto.setVisible(false);
+             
                 //   MDIComercial.ProcesoInventario.setVisible(false);
                 for (int i = 0; i < ejecutarPermisos.getAplicaciones().length; i++) {
                     int varApp = Integer.parseInt(ejecutarPermisos.getAplicaciones()[i]);
@@ -230,6 +231,8 @@ public class GenerarPermisos {
                         MDIComercial.M_inventario.setVisible(true);
                         MDIComercial.P_ventas.setVisible(true);
                         MDIComercial.P_compras.setVisible(true);
+                        
+                          MDIComercial.P_producto.setVisible(true);
                         //    MDIComercial.ProcesoInventario.setVisible(true);
                         switch (varApp) {
                             case 3001:
